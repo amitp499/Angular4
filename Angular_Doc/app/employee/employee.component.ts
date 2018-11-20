@@ -31,7 +31,7 @@ export class EmployeeComponent implements OnInit {
     },
 
     {
-      code: 'emp103',name: 'Rohit', gender: 'Male', anualsalary:25500, dateofbirth:'9/7/1932'
+      code: 'emp105',name: 'Rohit', gender: 'Male', anualsalary:25500, dateofbirth:'9/7/1932'
     }
 
  ]
