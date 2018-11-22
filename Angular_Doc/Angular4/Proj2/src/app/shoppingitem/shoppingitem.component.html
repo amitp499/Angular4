@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+
+  </head>
+  <body>
+
+
+    <div class="container">
+
+      <div class="jumbotron">
+
+        
+    <header><h2>Add Item</h2></header>
+
+          <form #frm="ngForm"  ngNativeValidate >
+
+            
+                <div class="form-group">
+
+            
+               <label for="name">Name : </label>
+
+                  <input type="text"  pattern ="[a-zA-Z][a-zA-Z ]+" name="name" #NameControl="ngModel" class="form-control" id="name" [(ngModel)]="name" required>
+
+                  <div *ngIf="NameControl?.touched && NameControl?.invalid" class="alert alert-danger">
+
+                      <div *ngIf="NameControl.errors?.required">
+                            Item Name is required
+                        </div>
+                       
+                       <div *ngIf="NameControl.errors?.pattern">
+                         Please enter Item Name
+                       </div>
+             
+
+                  </div>
+                  </div>
+                               
+                
+                <div class="form-group">
+
+                      <label for="qty">Quantity</label>
+
+                  <input type="number"  name="qty"  #NumControl="ngModel" class="form-control" id="qty" [(ngModel)]="qty" required>
+
+                  <div *ngIf="NumControl?.touched && NumControl?.invalid" class="alert alert-danger">
+
+                      <div *ngIf="NumControl.errors?.required">
+                            Quantity is required
+                        </div>
+                       
+                       <div *ngIf="NumControl.errors?.pattern">
+                         Please enter Valid Quantity
+                       </div>
+             
+
+                  </div>
+            
+
+                </div>
+            
+                
+            
+                <div class="form-group">
+                   
+                        <!--<input type="submit" value="Add User"  class="form-control" class="btn btn-success" [disabled]="frm.invalid"> -->
+                        <input type="button" value="Add Item"  class="form-control" class="btn btn-success">
+                      
+
+                </div>
+                
+        <!-- {{frm.value | json}} -->
+           
+            
+            
+            </form>
+  
+            <footer><h2>Shopping List</h2></footer>
+
+      </div>
+
+       
+    </div>
+
+     
+        
+
+  </body>
+  
+</html>

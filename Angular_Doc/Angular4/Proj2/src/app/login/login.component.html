@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="jumbotron">
+
+          <form #frm="ngForm"  ngNativeValidate >
+
+            
+                <div class="form-group">
+
+            
+               <label for="name">User Name : </label>
+
+                  <input type="text"  pattern ="[a-zA-Z][a-zA-Z ]+" name="name" #NameControl="ngModel" class="form-control" id="name" [(ngModel)]="name" required>
+
+                  <div *ngIf="NameControl?.touched && NameControl?.invalid" class="alert alert-danger">
+
+                      <div *ngIf="NameControl.errors?.required">
+                            User Name is required
+                        </div>
+                       
+                       <div *ngIf="NameControl.errors?.pattern">
+                         Please enter User Name
+                       </div>
+             
+
+                  </div>
+                  </div>
+                               
+                
+                <div class="form-group">
+
+                      <label for="Password">Contact No.</label>
+
+                  <input type="password"  name="num"  #NumControl="ngModel" class="form-control" id="num" [(ngModel)]="num" required>
+
+                  <div *ngIf="NumControl?.touched && NumControl?.invalid" class="alert alert-danger">
+
+                      <div *ngIf="NumControl.errors?.required">
+                            Password is required
+                        </div>
+                       
+                       <div *ngIf="NumControl.errors?.pattern">
+                         Please enter Valid Password
+                       </div>
+             
+
+                  </div>
+            
+
+                </div>
+            
+                
+            
+                <div class="form-group">
+                   
+                        <!--<input type="submit" value="Add User"  class="form-control" class="btn btn-success" [disabled]="frm.invalid"> -->
+                        <input type="button" value="Add User"  class="form-control" class="btn btn-success">
+                      
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label><a routerLink="/register">Create New Account</a></label>
+
+                </div>
+                
+        <!-- {{frm.value | json}} -->
+           
+            
+            
+            </form>
+  
+
+      </div>
+
+       
+    </div>
+
+     
+        
+
+  </body>
+  
+</html>

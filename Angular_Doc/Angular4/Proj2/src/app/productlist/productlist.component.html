@@ -1,0 +1,51 @@
+<div class="panel panel-primary" *ngFor="let pr of products">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{pr.name}}</h3>
+    </div>
+    <div class="panel-body">
+  
+      <div class="col-xs-10">
+  
+        <div class="row vertical-align">
+  
+          <div class="col-xs-4">
+            <img class="imageClass" [src]="pr.photoPath" />
+          </div>
+          <div class="col-xs-8">
+             
+            <div class="row">
+              <div class="col-xs-6">
+               Amount
+              </div>
+              <div class="col-xs-6">
+                : {{pr.amount}}
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-xs-6">
+                Availibility
+              </div>
+
+               
+              <div *ngIf="pr.isActive==true"  class="col-xs-6">
+                 
+                  <input type="button" value="Add To Cart:">
+    
+                  </div>
+
+                  
+              <div *ngIf="pr.isActive==false"  class="col-xs-6">
+                 
+                 <label>Out Of Stock</label>
+    
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
