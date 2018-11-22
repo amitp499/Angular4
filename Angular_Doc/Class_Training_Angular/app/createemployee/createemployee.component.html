@@ -1,0 +1,106 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="jumbotron">
+
+          <form #frm="ngForm" (ngSubmit)="UserFunction(frm)" ngNativeValidate >
+
+            
+                <div class="form-group">
+
+            
+               <label for="name">User Name</label>
+
+                  <input type="text"  pattern ="[a-zA-Z][a-zA-Z ]+" name="name" #NameControl="ngModel" class="form-control" id="name" [(ngModel)]="name" required>
+
+                  <div *ngIf="NameControl?.touched && NameControl?.invalid" class="alert alert-danger">
+
+                      <div *ngIf="NameControl.errors?.required">
+                            Name is required
+                        </div>
+                       
+                       <div *ngIf="NameControl.errors?.pattern">
+                         Please enter Valid Name
+                       </div>
+             
+
+                  </div>
+                  </div>
+               
+
+                <div class="form-group">                  
+              
+                   <label for="email">Email Id</label>
+                    <input type="email" pattern="^[\w-\+]+(\.[\w]+)*@[\w-]+(\.[\w]+)*(\.[a-z]{2,})+$" #EmailControl="ngModel" name="email" id="email" class="form-control" [(ngModel)]="email" required>
+
+                    <div *ngIf="EmailControl?.touched && EmailControl?.invalid" class="alert alert-danger">
+
+                        <div *ngIf="EmailControl.errors?.required">
+                              EMail Id is required
+                          </div>
+                         
+                         <div *ngIf="EmailControl.errors?.pattern">
+                           Please enter Valid Email Id
+                         </div>
+               
+  
+                    </div>
+            
+                </div>
+                
+                <div class="form-group">
+
+                      <label for="contact">Contact No.</label>
+
+                  <input type="number"  name="num" pattern="[0-9]{10}" #NumControl="ngModel" class="form-control" id="num" [(ngModel)]="num" required>
+
+                  <div *ngIf="NumControl?.touched && NumControl?.invalid" class="alert alert-danger">
+
+                      <div *ngIf="NumControl.errors?.required">
+                            Contact Number is required
+                        </div>
+                       
+                       <div *ngIf="NumControl.errors?.pattern">
+                         Please enter Valid Contact Number
+                       </div>
+             
+
+                  </div>
+            
+
+                </div>
+            
+                
+            
+                <div class="form-group">
+                   
+                        <!--<input type="submit" value="Add User"  class="form-control" class="btn btn-success" [disabled]="frm.invalid"> -->
+                        <input type="button" value="Add User"  class="form-control" class="btn btn-success">
+                      
+
+                </div>
+                
+        {{frm.value | json}}
+           
+            
+            
+            </form>
+  
+
+      </div>
+
+       
+    </div>
+
+     
+        
+
+  </body>
+  
+</html>

@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  
+</div>
+
+  <!-- <app-employee></app-employee> -->
+  <!-- <app-contractors></app-contractors> -->
+  <!--<app-employeeinfo></app-employeeinfo> -->
+
+  <div>
+    <ul class="nav nav-tabs">
+      <li routerLinkActive="active">
+        <a routerLink="home">Home</a>
+      </li>  
+        <li routerLinkActive="active">
+          <a routerLink="employeelist">Employee List</a>
+        </li>
+  
+        <li routerLinkActive="active">
+          <a routerLink="employees">Employees</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="contractors">Contact Us</a>
+        </li>
+
+        <li routerLinkActive="active">
+          <a routerLink="employeeService">Employee Service</a>
+        </li>
+
+        <li routerLinkActive="active">
+          <a routerLink="createemployee">Create Employee</a>
+        </li>
+
+        <li routerLinkActive="active">
+          <a routerLink="jasonitems">JSON Items</a>
+        </li>
+
+    </ul>
+    <br/>
+    <router-outlet></router-outlet>  
+  </div>
+

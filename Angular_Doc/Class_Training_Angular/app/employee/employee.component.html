@@ -1,0 +1,77 @@
+<h1>{{name}}</h1>
+<table> 
+    <tr><td>First Name</td><td>{{firstName}}</td></tr>
+    <tr><td>Last Name</td><td>{{lastName}}</td></tr>
+    <tr><td>Gender</td><td>{{gender}}</td></tr>
+    <tr><td>Age</td><td>{{age}}</td></tr>
+    
+</table>
+
+<h2>{{fullName()}}</h2>
+
+<span *ngIf="showFaculty">Faculty Name : {{facultyName}}</span>
+
+<p>Subjects: <br><span *ngFor="let s of subject;">{{s}}<br></span></p>
+
+Duration: <span [ngSwitch]="duration">
+    <span *ngSwitchCase="1">One Day</span>
+    <span *ngSwitchCase="7">One Week</span>
+    <span *ngSwitchCase="30">One Month</span>
+    <span *ngSwitchDefault>Please check your input</span>
+    </span>
+
+
+    <p>List of Employees: <br><br>
+        <table>
+         
+            <thead>
+                <tr>
+                    <td>Code</td>
+                    <td>Name</td>
+                    <td>Gender</td>
+                    <td>Annual Salary</td>
+                    <td>Date Of Birth</td>
+                </tr>
+            </thead>
+      
+            <tr *ngFor='let s of employees;'>
+                <td>{{s.code | uppercase}}</td>
+                <td>{{s.name | uppercase |emp:s.gender}}</td>
+                <td>{{s.gender}}</td>
+                <td>{{s.anualsalary}}</td>
+                <td>{{s.dateofbirth | date: 'dd/MM/yy' }}</td>
+                <td>
+                    <span [ngSwitch]="emp.type">
+                            <span *ngSwitchCase="0">Daily</span>
+                             <span *ngSwitchCase="1">Permanent</span> 
+                             <span *ngSwitchCase="2">Contract</span>
+                              <span *ngSwitchCase="3">Retired</span> 
+                              <span *ngSwitchDefault>Other</span>
+                    </span>
+                </td>
+
+            </tr>
+            <tr *ngIf="!employees || employees.length==0">
+                <td colspan="5"> No Employees to display</td>
+            </tr>
+
+        </table>
+
+        <br>
+        <br>
+        <label>Employee Id :  {{emp.id}}, </label> <br>
+        <label>Name :  {{emp.name}}, </label><br>
+        <label>Salary :  {{emp.salary}} </label><br>
+
+        <p>Example of object getting printed in json format</p>
+
+        {{emp|json}}
+        
+        
+    
+
+
+
+
+
+
